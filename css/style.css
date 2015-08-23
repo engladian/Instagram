@@ -1,0 +1,23 @@
+﻿.top-heading-row {
+    font-size: 80px;
+}
+
+.bottom-heading-row {
+    font-size: 80px;
+    margin-bottom: 0;
+}
+
+.image{
+    width: 80px;
+    height: 80px;
+}
+
+.textbox {
+    width: 320px;
+    height: 40px;
+    font-size: large;
+    padding-left: 10px;
+    background-color: aliceblue;
+    border: 2px solid black;
+    font-weight: bold;
+}
