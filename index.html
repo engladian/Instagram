@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <title>Instagram Search</title>
     <script src="./js/jquery-2.1.4.min.js"></script>
@@ -7,34 +7,43 @@
     <script src="https://code.angularjs.org/1.3.11/angular.js"></script>
     <script src="https://code.angularjs.org/1.3.11/angular-animate.min.js"></script>
     <script src="./js/instagram.js"></script>
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="./css/bootstrap.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
 </head>
-<body ng-app="instagramApp" style="background-color: black;">
-    <div class="container" style="background-color: white;" ng-controller="instagramCtrl">
+<body ng-app="instagramApp">
+    <div class="container"  ng-controller="instagramCtrl">
         <form name="instagramForm" novalidate ng-submit="startSearch()">
             <div class="row top-heading-row">
-                <div class="col-sm-5" style="text-align: right; margin-top: 60px; padding-right: 5px;">INST</div>
-                <div class="col-sm-1" style="margin-top: 50px; padding-left: 10px; padding-top: 5px"><img class="image" src="./img/search.png" /></div>
-                <div class="col-sm-6" style="text-align: left; margin-top: 60px; padding-left: 5px;">GRAM</div>
+                <div class="col-sm-5 text-right top-left-text">INST</div>
+                <div class="col-sm-1 title-image"><img class="image" src="./img/search.png" /></div>
+                <div class="col-sm-6 text-left top-right-text">GRAM</div>
             </div>
             <div class="row bottom-heading-row">
-                <div class="col-sm-12" style=" padding-top: 0; padding-left: 330px;">SEARCHER</div>
+                <div class="col-sm-12 lower-title-text">SEARCHER</div>
             </div>
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-3" style="padding-top: 20px; padding-left: 60px; padding-right: 0;">
-                    <input type="text" name="searchtext" class="textbox" />
+                <div class="col-sm-4 col-sm-offset-3 searchbox" >
+                    <input type="text" name="searchtext" ng-model="data.searchText" class="textbox" required />
                 </div>
                 <div class="col-sm-4">
-                    <input type="button" class="btn btn-lg" value="Submit" style="margin-top: 17px; margin-left: 0;" />
+                    <input type="submit" class="btn btn-lg submitbutton" value="Submit" />
                 </div>
             </div>
             <!--Messaging row-->
-            <div class="row" style="height: 100px;">  
-            </div>
-            <div class="row" style="height: 200px;">
+            <div class="row text-center message-row">
+                <div class="col-sm-4 col-sm-offset-3">
+                    {{data.message}}
                 </div>
-</form>
+            </div>
+            <div class="row animate-row" ng-hide="data.imageRows.length>0">
+            </div>
+            <div class="row" ng-repeat="rowUrls in data.imageRows">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3 photoBox" ng-repeat="imageUrl in rowUrls">
+                    <img ng-src="{{imageUrl}}" />
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>

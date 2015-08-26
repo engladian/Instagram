@@ -1,5 +1,29 @@
-﻿.top-heading-row {
+﻿body {
+    background-color: black;
+}
+
+.container {
+    background-color: lightsalmon;
+}
+
+.top-heading-row {
     font-size: 80px;
+}
+
+.top-left-text {
+    margin-top: 60px;
+    padding-right: 0;
+}
+
+.top-right-text {
+    margin-top: 60px;
+    padding-left: 0;
+}
+
+.title-image {
+    margin-top: 50px;
+    padding-left: 10px;
+    padding-top: 5px;
 }
 
 .bottom-heading-row {
@@ -7,10 +31,43 @@
     margin-bottom: 0;
 }
 
-.image{
+.lower-title-text {
+    padding-top: 0;
+    padding-left: 330px;
+}
+
+.searchbox {
+    padding-top: 20px;
+    padding-left: 60px;
+    padding-right: 0;
+}
+
+.submitbutton {
+    margin-top: 17px;
+    margin-left: 0;
+}
+
+.image {
     width: 80px;
     height: 80px;
 }
+
+.animate-row {
+    overflow: hidden;
+    height: 200px;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 2.0s;
+}
+
+    .animate-row.ng-hide-add, /*start hide class*/
+    .animate-row.ng-hide-remove.ng-hide-remove-active /*finish show class*/ {
+        height: 200px; /*showing*/
+    }
+
+        .animate-row.ng-hide-remove, /*start show class*/
+        .animate-row.ng-hide-add.ng-hide-add-active /*finish hide class*/ {
+            height: 0; /*hidden*/
+        }
 
 .textbox {
     width: 320px;
@@ -20,4 +77,20 @@
     background-color: aliceblue;
     border: 2px solid black;
     font-weight: bold;
+}
+
+.message-row {
+    min-height: 100px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.photoBox {
+    padding: 10px 10px;
+    background-color: cornsilk;
+}
+
+img {
+    width: 270px;
+    height: 270px;
 }
