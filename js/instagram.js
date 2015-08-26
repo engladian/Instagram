@@ -23,11 +23,13 @@ instagramApp.controller('instagramCtrl', function ($scope, $http) {
             $scope.data.message = 'We found ' + response.data.length + ' results for "' + searchTag.trim() + '"';
             var rowURLs = [];
             $scope.data.imageRows = []; //Initialise
-            for (imageIdx = 0; imageIdx < response.data.length; imageIdx++)
-            {
-                rowURLs.push(response.data[imageIdx].images.low_resolution.url);
-                if ((imageIdx + 1) % 3 === 0 || imageIdx == (response.data.length - 1))
-                {
+            for (imageIdx = 0; imageIdx < response.data.length; imageIdx++) {
+                rowURLs.push(
+                    {
+                        navUrl: response.data[imageIdx].link,
+                        imageUrl: response.data[imageIdx].images.low_resolution.url
+                    });
+                if ((imageIdx + 1) % 3 === 0 || imageIdx == (response.data.length - 1)) {
                     $scope.data.imageRows.push(rowURLs);
                     rowURLs = [];
                 }

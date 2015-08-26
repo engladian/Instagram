@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-3 searchbox" >
-                    <input type="text" name="searchtext" ng-model="data.searchText" class="textbox" required />
+                    <input type="text" name="searchtext" ng-change="data.message=''" ng-model="data.searchText" class="textbox" required />
                 </div>
                 <div class="col-sm-4">
                     <input type="submit" class="btn btn-lg submitbutton" value="Submit" />
@@ -39,8 +39,10 @@
             </div>
             <div class="row" ng-repeat="rowUrls in data.imageRows">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-3 photoBox" ng-repeat="imageUrl in rowUrls">
-                    <img ng-src="{{imageUrl}}" />
+                <div class="col-sm-3 photoBox" ng-repeat="Url in rowUrls">
+                    <a href="{{Url.navUrl}}">
+                        <img ng-src="{{Url.imageUrl}}" />
+                    </a>
                 </div>
             </div>
         </form>
